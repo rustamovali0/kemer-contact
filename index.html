@@ -32,6 +32,9 @@
     
     <!-- Alpine.js CDN -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- QR Code Generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     
     <!-- Font Awesome Ikonları -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -408,7 +411,7 @@
 
             <!-- QR Code Image Box -->
             <div class="mx-auto w-48 h-48 bg-white p-3 rounded-2xl flex items-center justify-center shadow-inner border-4 border-champagne/70">
-                <img :src="'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent('https://me.kemer.store')" 
+                <img :src="qrCodeUrl(220)" 
                      alt="Ali Rustamov QR Code" 
                      class="w-full h-full object-contain">
             </div>
@@ -416,17 +419,24 @@
             <p class="text-xs font-bold text-champagne mt-4 tracking-wider">me.kemer.store</p>
 
             <!-- Action Buttons inside Modal -->
-            <div class="mt-6 grid grid-cols-2 gap-2.5">
-                <!-- Copy Link -->
-                <button @click="copyToClipboard('https://me.kemer.store', 'Link'); showQrModal = false" class="flex items-center justify-center space-x-1.5 py-2.5 rounded-xl text-xs font-bold action-secondary text-slate-200 hover:bg-white/5 transition-colors">
-                    <i class="fa-solid fa-link text-[11px] text-champagne"></i>
-                    <span>Linki kopyala</span>
+            <div class="mt-6 space-y-2.5">
+                <!-- Download QR Code -->
+                <button @click="downloadQrCode()" class="flex w-full items-center justify-center space-x-1.5 py-3 rounded-xl text-xs font-extrabold action-primary hover:opacity-90 transition-opacity">
+                    <i class="fa-solid fa-download text-[11px]"></i>
+                    <span>QR kodu yüklə</span>
                 </button>
-                <!-- Open Webpage -->
-                <a href="https://me.kemer.store" target="_blank" class="flex items-center justify-center space-x-1.5 py-2.5 rounded-xl text-xs font-bold action-primary hover:opacity-90 transition-opacity">
-                    <i class="fa-solid fa-globe text-[11px]"></i>
-                    <span>Səhifəni aç</span>
-                </a>
+                <div class="grid grid-cols-2 gap-2.5">
+                <!-- Copy Link -->
+                    <button @click="copyToClipboard('https://me.kemer.store', 'Link'); showQrModal = false" class="flex items-center justify-center space-x-1.5 py-2.5 rounded-xl text-xs font-bold action-secondary text-slate-200 hover:bg-white/5 transition-colors">
+                        <i class="fa-solid fa-link text-[11px] text-champagne"></i>
+                        <span>Linki kopyala</span>
+                    </button>
+                    <!-- Open Webpage -->
+                    <a href="https://me.kemer.store" target="_blank" class="flex items-center justify-center space-x-1.5 py-2.5 rounded-xl text-xs font-bold action-secondary text-slate-200 hover:bg-white/5 transition-colors">
+                        <i class="fa-solid fa-globe text-[11px] text-champagne"></i>
+                        <span>Səhifəni aç</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -464,7 +474,7 @@
                     // Real tək məhsul şəkli ilə birlikdə
                     product: {
                         name: "Premium Gümüş Qartal Kəmər",
-                        price: "75 AZN",
+                        price: "35 AZN",
                         description: "Həqiqi yüksək keyfiyyətli dəri və parlaq gümüşü detallara malik tamamilə lüks dizayn.",
                         image: "https://icwpaipqqqwjpooazmcu.supabase.co/storage/v1/object/public/product-images/products/1782419361710-0-78048bf0-6424-4af9-a028-7b1531051d09.png"
                     }
@@ -493,6 +503,52 @@
                     setTimeout(() => {
                         this.toast.show = false;
                     }, 2500);
+                },
+
+                qrCodeUrl(size = 600) {
+                    return `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&format=png&data=${encodeURIComponent('https://me.kemer.store')}`;
+                },
+
+                async downloadQrCode() {
+                    const downloadLink = document.createElement('a');
+                    downloadLink.download = 'Ali_Rustemov_QR_kod.png';
+                    let qrContainer;
+
+                    try {
+                        if (typeof window.QRCode !== 'function') throw new Error('QR generator unavailable');
+
+                        qrContainer = document.createElement('div');
+                        qrContainer.style.position = 'fixed';
+                        qrContainer.style.left = '-9999px';
+                        qrContainer.style.top = '0';
+                        document.body.appendChild(qrContainer);
+
+                        new QRCode(qrContainer, {
+                            text: 'https://me.kemer.store',
+                            width: 1000,
+                            height: 1000,
+                            colorDark: '#070706',
+                            colorLight: '#ffffff',
+                            correctLevel: QRCode.CorrectLevel.H
+                        });
+
+                        await new Promise((resolve) => setTimeout(resolve, 50));
+
+                        const qrCanvas = qrContainer.querySelector('canvas');
+                        const qrImage = qrContainer.querySelector('img');
+                        downloadLink.href = qrCanvas ? qrCanvas.toDataURL('image/png') : qrImage?.src;
+                        if (!downloadLink.href) throw new Error('QR image unavailable');
+
+                        document.body.appendChild(downloadLink);
+                        downloadLink.click();
+                        document.body.removeChild(downloadLink);
+                        this.showToast("QR kod yükləndi!");
+                    } catch (error) {
+                        window.open(this.qrCodeUrl(1000), '_blank', 'noopener');
+                        this.showToast("QR kod yeni pəncərədə açıldı");
+                    } finally {
+                        if (qrContainer) qrContainer.remove();
+                    }
                 },
 
                 // Dynamic vCard download engine supporting Baku contacts with the correct Nar number
