@@ -17,7 +17,7 @@
     <meta property="og:image" content="https://icwpaipqqqwjpooazmcu.supabase.co/storage/v1/object/sign/logos/IMG_3732.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8xMjAzOTRmMy04ZjhmLTQwOTItYjA2Ny04ZDBmODZiOWE1OWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJsb2dvcy9JTUdfMzczMi53ZWJwIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4MjgxMDU4NywiZXhwIjoyMDk4MTcwNTg3fQ.o2SgZW9r9GJKgZ1hcD43-sMWc4uxQEvOUJQWzxnE6PU">
 
     <!-- PWA və Mobil Optimallaşdırma -->
-    <meta name="theme-color" content="#000000" id="theme-color-meta">
+    <meta name="theme-color" content="#070706" id="theme-color-meta">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="https://icwpaipqqqwjpooazmcu.supabase.co/storage/v1/object/sign/logos/IMG_3732.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8xMjAzOTRmMy04ZjhmLTQwOTItYjA2Ny04ZDBmODZiOWE1OWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJsb2dvcy9JTUdfMzczMi53ZWJwIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4MjgxMDU4NywiZXhwIjoyMDk4MTcwNTg3fQ.o2SgZW9r9GJKgZ1hcD43-sMWc4uxQEvOUJQWzxnE6PU">
@@ -45,13 +45,15 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        darkBg: '#000000', // Pitch black for luxury look
-                        darkCard: '#09090b', // Obsidian Dark
+                        darkBg: '#070706',
+                        darkCard: '#11110f',
+                        champagne: '#d8c08a',
+                        deepEmerald: '#0d2f2b',
                     },
                     boxShadow: {
-                        'premium-dark': '0 20px 50px -15px rgba(0, 0, 0, 0.9)',
-                        'platinum-glow': '0 0 30px 0 rgba(255, 255, 255, 0.04)',
-                        'accent-shimmer': '0 0 15px rgba(255, 255, 255, 0.1)',
+                        'premium-dark': '0 24px 70px -24px rgba(0, 0, 0, 0.95)',
+                        'platinum-glow': '0 0 42px 0 rgba(216, 192, 138, 0.14)',
+                        'accent-shimmer': '0 18px 42px -24px rgba(216, 192, 138, 0.75)',
                     }
                 }
             }
@@ -59,48 +61,106 @@
     </script>
 
     <style>
+        :root {
+            --champagne: #d8c08a;
+            --champagne-soft: rgba(216, 192, 138, 0.18);
+            --emerald: #0d2f2b;
+            --ink: #070706;
+        }
         body {
             -webkit-tap-highlight-color: transparent;
+            background:
+                linear-gradient(135deg, rgba(216, 192, 138, 0.05), transparent 36%),
+                linear-gradient(225deg, rgba(13, 47, 43, 0.38), transparent 42%),
+                #070706;
         }
-        /* Premium Minimalist Glassmorphism styling (Pure Black & Platinum White highlights) */
+        .noise-layer {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+            opacity: 0.08;
+            mix-blend-mode: soft-light;
+        }
+        .luxury-surface {
+            background:
+                linear-gradient(115deg, transparent 0 17%, rgba(216, 192, 138, 0.12) 17.4%, transparent 18.2% 54%, rgba(255, 255, 255, 0.07) 54.4%, transparent 55.1%),
+                radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.14), transparent 35%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 42%);
+        }
+        .micro-grid {
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: linear-gradient(to bottom, black, transparent 78%);
+        }
         .glass-panel {
-            background: rgba(9, 9, 11, 0.85);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.018)),
+                rgba(13, 13, 12, 0.82);
+            backdrop-filter: blur(28px) saturate(1.12);
+            -webkit-backdrop-filter: blur(28px) saturate(1.12);
+            border: 1px solid rgba(216, 192, 138, 0.16);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 24px 70px -35px rgba(0, 0, 0, 0.95);
         }
-        /* Elegant Metallic Gradient Text */
         .premium-text-gradient {
-            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 50%, #cbd5e1 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f8ecd0 42%, #d8c08a 74%, #a6b8b2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        /* Floating background orbs for depth without distracting colors */
-        .orb-gradient-1 {
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
-            animation: float-orb-1 25s infinite alternate ease-in-out;
+        .premium-border {
+            position: relative;
         }
-        .orb-gradient-2 {
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 70%);
-            animation: float-orb-2 30s infinite alternate ease-in-out;
+        .premium-border::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(140deg, rgba(255, 255, 255, 0.35), rgba(216, 192, 138, 0.18), rgba(13, 47, 43, 0.42));
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
         }
-        @keyframes float-orb-1 {
-            0% { transform: translate(-5%, -5%) scale(1); }
-            100% { transform: translate(10%, 15%) scale(1.2); }
+        .action-primary {
+            background: linear-gradient(135deg, #fff8e8 0%, #d8c08a 52%, #b89a58 100%);
+            color: #0b0b09;
+            box-shadow: 0 16px 34px -20px rgba(216, 192, 138, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.5);
         }
-        @keyframes float-orb-2 {
-            0% { transform: translate(15%, 5%) scale(1.1); }
-            100% { transform: translate(-10%, -15%) scale(0.9); }
+        .action-secondary {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(216, 192, 138, 0.18);
+        }
+        .section-kicker {
+            color: rgba(216, 192, 138, 0.72);
+            letter-spacing: 0.18em;
+        }
+        .section-label {
+            letter-spacing: 0.18em;
+        }
+        .product-copy {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+            }
         }
     </style>
 </head>
 
-<body x-data="cardApp()" class="relative min-h-screen text-slate-200 bg-black overflow-x-hidden font-sans antialiased">
+<body x-data="cardApp()" class="relative min-h-screen text-slate-200 bg-darkBg overflow-x-hidden font-sans antialiased">
 
     <!-- Ambient Background -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute -top-[10%] -left-[10%] w-[100%] h-[100%] rounded-full orb-gradient-1 filter blur-[100px]"></div>
-        <div class="absolute -bottom-[15%] -right-[15%] w-[100%] h-[100%] rounded-full orb-gradient-2 filter blur-[100px]"></div>
+        <div class="absolute inset-0 luxury-surface"></div>
+        <div class="absolute inset-0 micro-grid"></div>
+        <div class="absolute inset-0 noise-layer"></div>
+        <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
     </div>
 
     <!-- MAIN CONTAINER -->
@@ -109,19 +169,19 @@
         <!-- HEADER / NAVIGATION -->
         <header class="flex justify-between items-center w-full mb-8 z-30">
             <!-- Brand Badge -->
-            <a href="https://kemer.store" target="_blank" class="flex items-center space-x-1.5 bg-white/5 text-white px-3.5 py-2 rounded-xl text-xs font-bold border border-white/10 shadow-sm backdrop-blur-sm hover:bg-white hover:text-black transition-all duration-300">
-                <i class="fa-solid fa-gem text-[10px] animate-pulse"></i>
+            <a href="https://kemer.store" target="_blank" class="premium-border flex items-center space-x-1.5 bg-black/35 text-white px-3.5 py-2 rounded-xl text-xs font-bold shadow-sm backdrop-blur-sm hover:bg-white hover:text-black transition-all duration-300">
+                <i class="fa-solid fa-gem text-[10px] text-champagne"></i>
                 <span class="tracking-widest uppercase">kemer.store</span>
             </a>
 
             <div class="flex items-center space-x-2.5">
                 <!-- QR Code Button -->
-                <button @click="showQrModal = true" class="p-2.5 rounded-xl transition-all duration-300 bg-zinc-900/60 border border-white/5 text-slate-300 hover:scale-105 hover:bg-zinc-800 active:scale-95 shadow-sm" aria-label="QR Kodu göstər">
+                <button @click="showQrModal = true" class="p-2.5 rounded-xl transition-all duration-300 bg-black/35 border border-champagne/15 text-slate-300 hover:scale-105 hover:text-champagne hover:bg-white/5 active:scale-95 shadow-sm backdrop-blur-sm" aria-label="QR Kodu göstər">
                     <i class="fa-solid fa-qrcode text-[15px]"></i>
                 </button>
                 
                 <!-- Share Button -->
-                <button @click="shareCard()" class="p-2.5 rounded-xl transition-all duration-300 bg-zinc-900/60 border border-white/5 text-slate-300 hover:scale-105 hover:bg-zinc-800 active:scale-95 shadow-sm" aria-label="Kartı paylaş">
+                <button @click="shareCard()" class="p-2.5 rounded-xl transition-all duration-300 bg-black/35 border border-champagne/15 text-slate-300 hover:scale-105 hover:text-champagne hover:bg-white/5 active:scale-95 shadow-sm backdrop-blur-sm" aria-label="Kartı paylaş">
                     <i class="fa-solid fa-share-nodes text-[15px]"></i>
                 </button>
             </div>
@@ -131,16 +191,16 @@
         <section class="flex flex-col items-center text-center mb-8">
             <div class="relative mb-6 group">
                 <!-- Outer Premium Ring -->
-                <div class="absolute inset-0 bg-gradient-to-tr from-white to-zinc-700 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-                <div class="relative p-1 rounded-full bg-gradient-to-tr from-zinc-800 to-zinc-600 shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]">
-                    <div class="rounded-full bg-black p-0.5">
+                <div class="absolute -inset-3 rounded-full bg-gradient-to-tr from-champagne/30 via-white/10 to-deepEmerald/30 blur-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="relative p-1 rounded-full bg-gradient-to-tr from-champagne via-white/40 to-deepEmerald shadow-platinum-glow transition-transform duration-500 group-hover:scale-[1.03]">
+                    <div class="rounded-full bg-black p-1">
                         <img :src="cardData.profile.avatar" 
                              :alt="cardData.profile.name" 
                              @error="handleAvatarError($event)"
-                             class="w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover border-2 border-white/10" />
+                             class="w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover border border-white/10 saturate-[1.04] contrast-[1.03]" />
                     </div>
                     <!-- Verified Founder Icon -->
-                    <div class="absolute bottom-1 right-2 bg-white text-black rounded-full p-2 border-2 border-black shadow-md flex items-center justify-center">
+                    <div class="absolute bottom-1 right-2 bg-champagne text-black rounded-full p-2 border-2 border-black shadow-md flex items-center justify-center">
                         <i class="fa-solid fa-shield text-[10px]"></i>
                     </div>
                 </div>
@@ -151,25 +211,40 @@
                 <h1 class="text-3xl font-extrabold tracking-tight text-white font-sans premium-text-gradient" x-text="cardData.profile.name"></h1>
                 
                 <!-- Premium Badge -->
-                <div class="inline-flex items-center space-x-1.5 px-3.5 py-1 rounded-full bg-white/5 border border-white/15">
-                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-                    <span class="text-[10px] font-bold text-white tracking-widest uppercase" x-text="cardData.profile.title"></span>
+                <div class="inline-flex items-center space-x-1.5 px-3.5 py-1 rounded-full bg-black/35 border border-champagne/20 shadow-platinum-glow">
+                    <span class="w-1.5 h-1.5 rounded-full bg-champagne"></span>
+                    <span class="text-[10px] font-bold text-champagne tracking-widest uppercase" x-text="cardData.profile.title"></span>
                 </div>
                 
                 <p class="text-xs sm:text-sm text-zinc-400 max-w-xs mx-auto pt-1 leading-relaxed" x-text="cardData.profile.shortBio"></p>
             </div>
 
+            <div class="grid grid-cols-3 gap-2.5 w-full mt-6">
+                <div class="premium-border rounded-2xl bg-black/25 px-2.5 py-3 text-center">
+                    <span class="block text-sm font-extrabold text-white">Baku</span>
+                    <span class="block text-[8px] font-bold section-label text-zinc-500 mt-1">MƏKAN</span>
+                </div>
+                <div class="premium-border rounded-2xl bg-black/25 px-2.5 py-3 text-center">
+                    <span class="block text-sm font-extrabold text-white">77</span>
+                    <span class="block text-[8px] font-bold section-label text-zinc-500 mt-1">NÖMRƏ</span>
+                </div>
+                <div class="premium-border rounded-2xl bg-black/25 px-2.5 py-3 text-center">
+                    <span class="block text-sm font-extrabold text-white">VCF</span>
+                    <span class="block text-[8px] font-bold section-label text-zinc-500 mt-1">KONTAKT</span>
+                </div>
+            </div>
+
             <!-- Main Interactive Actions -->
             <div class="grid grid-cols-2 gap-3.5 w-full mt-8">
                 <!-- Fast Contact Plane -->
-                <a href="#elaqe" class="flex items-center justify-center space-x-2 py-4 px-4 rounded-2xl font-bold bg-white text-black hover:bg-zinc-200 active:scale-[0.98] hover:scale-[1.01] transition-all duration-300 shadow-accent-shimmer">
+                <a href="#elaqe" class="action-primary flex items-center justify-center space-x-2 py-4 px-4 rounded-2xl font-bold active:scale-[0.98] hover:scale-[1.01] transition-all duration-300">
                     <i class="fa-solid fa-paper-plane text-[13px]"></i>
                     <span class="text-xs tracking-widest uppercase font-extrabold">ƏLAQƏ SAXLA</span>
                 </a>
                 
                 <!-- Save Contact Info -->
-                <button @click="downloadVCard()" class="flex items-center justify-center space-x-2 py-4 px-4 rounded-2xl font-bold bg-zinc-950 border border-white/15 text-white hover:bg-zinc-900 active:scale-[0.98] hover:scale-[1.01] transition-all duration-300">
-                    <i class="fa-solid fa-user-plus text-[13px] text-zinc-300"></i>
+                <button @click="downloadVCard()" class="action-secondary flex items-center justify-center space-x-2 py-4 px-4 rounded-2xl font-bold text-white hover:bg-white/5 active:scale-[0.98] hover:scale-[1.01] transition-all duration-300">
+                    <i class="fa-solid fa-user-plus text-[13px] text-champagne"></i>
                     <span class="text-xs tracking-widest uppercase font-extrabold">YADDA SAXLA</span>
                 </button>
             </div>
@@ -178,35 +253,37 @@
         <!-- PREMIUM PRODUCT SHOWCASE (kemer.store Collection) -->
         <section class="mb-8">
             <div class="flex justify-between items-center mb-3.5 ml-1">
-                <h2 class="text-[11px] font-bold tracking-widest text-zinc-500 uppercase">Premium Məhsul</h2>
-                <a href="https://kemer.store" target="_blank" class="text-[10px] font-bold text-white hover:underline flex items-center space-x-1">
+                <h2 class="section-kicker text-[11px] font-bold">PREMIUM MƏHSUL</h2>
+                <a href="https://kemer.store" target="_blank" class="text-[10px] font-bold text-white hover:text-champagne transition-colors flex items-center space-x-1">
                     <span>kemer.store</span>
                     <i class="fa-solid fa-chevron-right text-[7px]"></i>
                 </a>
             </div>
             
             <!-- Beautiful single-product showcase card -->
-            <div class="relative overflow-hidden rounded-2xl border border-white/10 glass-panel shadow-premium-dark p-4 flex flex-row items-center gap-4">
+            <div class="premium-border relative overflow-hidden rounded-3xl glass-panel shadow-premium-dark p-4 flex flex-row items-center gap-4">
+                <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-champagne/50 to-transparent"></div>
                 <!-- Image container with guaranteed high quality belt asset -->
-                <div class="w-24 h-24 rounded-xl overflow-hidden bg-zinc-950 border border-white/10 flex-shrink-0 relative">
-                    <img :src="cardData.product.image" :alt="cardData.product.name" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=Kemer+Store'">
-                    <div class="absolute top-1 left-1 bg-black/80 text-[7px] text-white font-extrabold px-1.5 py-0.5 rounded border border-white/10 uppercase tracking-widest">Premium</div>
+                <div class="w-28 h-28 rounded-2xl overflow-hidden bg-zinc-950 border border-champagne/15 flex-shrink-0 relative shadow-platinum-glow">
+                    <img :src="cardData.product.image" :alt="cardData.product.name" class="w-full h-full object-cover scale-[1.03]" onerror="this.onerror=null; this.src='https://placehold.co/300x300/0a0a0a/d8c08a?text=Kemer+Store'">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-black/35 via-transparent to-white/10"></div>
+                    <div class="absolute top-2 left-2 bg-black/75 text-[7px] text-champagne font-extrabold px-2 py-1 rounded-full border border-champagne/20 section-label">SIGNATURE</div>
                 </div>
                 
                 <!-- Product metadata -->
-                <div class="flex-grow flex flex-col justify-between h-24 text-left">
+                <div class="flex-grow flex flex-col justify-between min-h-28 text-left">
                     <div>
-                        <div class="flex justify-between items-start gap-1">
-                            <h3 class="text-xs font-bold text-white truncate max-w-[120px] sm:max-w-[160px]" x-text="cardData.product.name"></h3>
-                            <span class="text-xs font-extrabold text-white bg-white/10 px-2 py-0.5 rounded-full" x-text="cardData.product.price"></span>
+                        <div class="flex justify-between items-start gap-2">
+                            <h3 class="text-sm font-extrabold text-white leading-snug max-w-[135px] sm:max-w-[170px]" x-text="cardData.product.name"></h3>
+                            <span class="shrink-0 text-[11px] font-extrabold text-black bg-champagne px-2 py-1 rounded-full shadow-accent-shimmer" x-text="cardData.product.price"></span>
                         </div>
-                        <p class="text-[10px] text-zinc-400 mt-1 line-clamp-2 leading-relaxed" x-text="cardData.product.description"></p>
+                        <p class="product-copy text-[10px] text-zinc-400 mt-1.5 leading-relaxed" x-text="cardData.product.description"></p>
                     </div>
                     
                     <!-- Fast order via WhatsApp -->
                     <a :href="'https://wa.me/994773003383?text=' + encodeURIComponent('Salam Əli bəy. me.kemer.store rəqəmsal vizitkartınızda gördüyüm \'' + cardData.product.name + '\' kəməri ilə maraqlanıram.')"
                        target="_blank"
-                       class="flex items-center justify-center space-x-1 py-1.5 px-3 rounded-lg bg-white hover:bg-zinc-200 text-black text-[10px] font-bold transition-all shadow-md">
+                       class="flex items-center justify-center space-x-1.5 py-2 px-3 rounded-xl action-primary text-[10px] font-extrabold transition-all">
                         <i class="fa-brands fa-whatsapp text-[12px]"></i>
                         <span>Sürətli Sifariş</span>
                     </a>
@@ -216,18 +293,18 @@
 
         <!-- CONTACT DETAILS -->
         <section id="elaqe" class="mb-6 scroll-mt-6">
-            <h2 class="text-[11px] font-bold tracking-widest text-zinc-500 uppercase mb-3 ml-1">Əlaqə Məlumatları</h2>
+            <h2 class="section-kicker text-[11px] font-bold mb-3 ml-1">ƏLAQƏ MƏLUMATLARI</h2>
             <div class="grid grid-cols-1 gap-3">
                 <template x-for="contact in cardData.contacts" :key="contact.id">
-                    <div class="flex items-center justify-between p-3.5 rounded-2xl transition-all duration-300 hover:scale-[1.01] active:scale-[0.99] glass-panel shadow-premium-dark">
+                    <div class="premium-border flex items-center justify-between p-3.5 rounded-2xl transition-all duration-300 hover:scale-[1.01] active:scale-[0.99] glass-panel shadow-premium-dark">
                         
                         <a :href="contact.href" class="flex items-center space-x-3.5 overflow-hidden flex-grow cursor-pointer group">
                             <!-- Premium minimalist icon bubble -->
-                            <div class="p-3 rounded-xl flex items-center justify-center text-black bg-white w-11 h-11 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                            <div class="p-3 rounded-xl flex items-center justify-center text-black bg-gradient-to-br from-white via-champagne to-[#9b8752] w-11 h-11 shadow-sm transition-transform duration-300 group-hover:scale-105">
                                 <i :class="contact.icon" class="text-[14px]"></i>
                             </div>
                             <div class="flex flex-col text-left overflow-hidden">
-                                <span class="text-[9px] font-bold tracking-wider text-zinc-500 uppercase" x-text="contact.label"></span>
+                                <span class="text-[9px] font-bold tracking-wider text-champagne/70 uppercase" x-text="contact.label"></span>
                                 <span class="text-sm font-semibold text-white mt-0.5 truncate max-w-[210px] sm:max-w-[240px]" x-text="contact.value"></span>
                             </div>
                         </a>
@@ -235,7 +312,7 @@
                         <!-- Clipboard action -->
                         <div class="flex items-center ml-2">
                             <button @click="copyToClipboard(contact.value, contact.label)" 
-                                    class="p-2.5 rounded-xl text-zinc-500 hover:text-white transition-all bg-zinc-900/40 border border-white/5" 
+                                    class="p-2.5 rounded-xl text-zinc-500 hover:text-champagne transition-all bg-black/30 border border-champagne/10" 
                                     title="Kopyala">
                                 <i class="fa-regular fa-copy text-[13px]"></i>
                             </button>
@@ -247,16 +324,16 @@
 
         <!-- SOCIAL LINKS SECTION -->
         <section class="mb-8">
-            <h2 class="text-[11px] font-bold tracking-widest text-zinc-500 uppercase mb-3 ml-1">Sosial Şəbəkələr</h2>
+            <h2 class="section-kicker text-[11px] font-bold mb-3 ml-1">SOSİAL ŞƏBƏKƏLƏR</h2>
             <div class="grid grid-cols-4 gap-3">
                 <template x-for="social in cardData.socials" :key="social.name">
                     <a :href="social.href" target="_blank" 
-                       class="flex flex-col items-center justify-center p-3.5 rounded-2xl transition-all duration-300 hover:scale-105 active:scale-95 text-center group glass-panel border border-transparent hover:border-white/10"
+                       class="premium-border flex flex-col items-center justify-center p-3.5 rounded-2xl transition-all duration-300 hover:scale-105 active:scale-95 text-center group glass-panel"
                        :title="social.name">
-                        <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-2 transition-all duration-500 group-hover:scale-110 shadow-sm text-black bg-white">
+                        <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-2 transition-all duration-500 group-hover:scale-110 shadow-sm text-black bg-gradient-to-br from-white via-champagne to-[#9b8752]">
                             <i :class="social.icon" class="text-[16px]"></i>
                         </div>
-                        <span class="text-[9px] font-bold text-zinc-400 truncate w-full" x-text="social.name"></span>
+                        <span class="text-[9px] font-bold text-zinc-300 truncate w-full" x-text="social.name"></span>
                     </a>
                 </template>
             </div>
@@ -264,9 +341,9 @@
 
         <!-- PERSONAL WEBPAGE PROMO -->
         <section class="mb-8">
-            <div class="p-4 rounded-2xl border border-white/10 glass-panel shadow-premium-dark text-center">
+            <div class="premium-border p-4 rounded-2xl glass-panel shadow-premium-dark text-center">
                 <p class="text-xs text-zinc-400 mb-2">Həmçinin mənim şəxsi fəaliyyət portfolioma da baxa bilərsiniz:</p>
-                <a href="https://rustamoff.site" target="_blank" class="inline-flex items-center space-x-2 text-xs font-bold text-white hover:underline transition-colors">
+                <a href="https://rustamoff.site" target="_blank" class="inline-flex items-center space-x-2 text-xs font-bold text-champagne hover:text-white transition-colors">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     <span>rustamoff.site</span>
                 </a>
@@ -274,13 +351,13 @@
         </section>
 
         <!-- PREMIUM LUXURY FOOTER -->
-        <footer class="text-center space-y-2 mt-auto pt-6 border-t border-white/10">
+        <footer class="text-center space-y-2 mt-auto pt-6 border-t border-champagne/10">
             <p class="text-xs text-zinc-500 font-medium">
                 &copy; 2026 Rustamoff. Bütün hüquqlar qorunur.
             </p>
             <div class="flex items-center justify-center space-x-1.5 text-[11px] text-zinc-600">
-                <i class="fa-solid fa-shield-halved text-[10px] text-white"></i>
-                <span class="font-semibold uppercase tracking-widest text-[9px]">Premium Şəxsi Vizit Kartı</span>
+                <i class="fa-solid fa-shield-halved text-[10px] text-champagne"></i>
+                <span class="font-semibold uppercase tracking-widest text-[9px] text-zinc-500">Premium Şəxsi Vizit Kartı</span>
             </div>
         </footer>
     </div>
@@ -295,8 +372,8 @@
          x-transition:leave-start="opacity-100 translate-y-0 scale-100"
          x-transition:leave-end="opacity-0 translate-y-4 scale-95"
          style="display: none;">
-        <div class="flex items-center space-x-2.5 py-3 px-4 rounded-2xl shadow-xl backdrop-blur-md bg-zinc-950/95 text-white border border-white/15 text-xs font-bold">
-            <div class="w-5 h-5 rounded-full bg-white text-black flex items-center justify-center text-[10px]">
+        <div class="flex items-center space-x-2.5 py-3 px-4 rounded-2xl shadow-xl backdrop-blur-md bg-zinc-950/95 text-white border border-champagne/20 text-xs font-bold">
+            <div class="w-5 h-5 rounded-full bg-champagne text-black flex items-center justify-center text-[10px]">
                 <i class="fa-solid fa-check"></i>
             </div>
             <span x-text="toast.message"></span>
@@ -312,7 +389,7 @@
         <div class="fixed inset-0 bg-black/85 backdrop-blur-sm transition-opacity" @click="showQrModal = false"></div>
         
         <!-- Modal Card Container -->
-        <div class="relative w-full max-w-sm rounded-3xl p-6 text-center shadow-2xl overflow-hidden transition-all transform z-10 glass-panel border border-white/10"
+        <div class="premium-border relative w-full max-w-sm rounded-3xl p-6 text-center shadow-2xl overflow-hidden transition-all transform z-10 glass-panel"
              x-show="showQrModal"
              x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0 scale-95"
@@ -322,7 +399,7 @@
              x-transition:leave-end="opacity-0 scale-95">
             
             <!-- Close Button -->
-            <button @click="showQrModal = false" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+            <button @click="showQrModal = false" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/45 border border-champagne/10 flex items-center justify-center text-slate-400 hover:text-champagne transition-colors">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
@@ -330,23 +407,23 @@
             <p class="text-xs text-zinc-400 mb-5">QR kodu telefon kamerası ilə skan edərək vizitkartı sürətlə digər cihazlara ötürə bilərsiniz.</p>
 
             <!-- QR Code Image Box -->
-            <div class="mx-auto w-48 h-48 bg-white p-3 rounded-2xl flex items-center justify-center shadow-inner">
+            <div class="mx-auto w-48 h-48 bg-white p-3 rounded-2xl flex items-center justify-center shadow-inner border-4 border-champagne/70">
                 <img :src="'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent('https://me.kemer.store')" 
                      alt="Ali Rustamov QR Code" 
                      class="w-full h-full object-contain">
             </div>
 
-            <p class="text-xs font-bold text-white mt-4 tracking-wider">me.kemer.store</p>
+            <p class="text-xs font-bold text-champagne mt-4 tracking-wider">me.kemer.store</p>
 
             <!-- Action Buttons inside Modal -->
             <div class="mt-6 grid grid-cols-2 gap-2.5">
                 <!-- Copy Link -->
-                <button @click="copyToClipboard('https://me.kemer.store', 'Link'); showQrModal = false" class="flex items-center justify-center space-x-1.5 py-2.5 rounded-xl text-xs font-bold bg-zinc-900 text-slate-200 hover:bg-zinc-800 transition-colors">
-                    <i class="fa-solid fa-link text-[11px] text-white"></i>
+                <button @click="copyToClipboard('https://me.kemer.store', 'Link'); showQrModal = false" class="flex items-center justify-center space-x-1.5 py-2.5 rounded-xl text-xs font-bold action-secondary text-slate-200 hover:bg-white/5 transition-colors">
+                    <i class="fa-solid fa-link text-[11px] text-champagne"></i>
                     <span>Linki kopyala</span>
                 </button>
                 <!-- Open Webpage -->
-                <a href="https://me.kemer.store" target="_blank" class="flex items-center justify-center space-x-1.5 py-2.5 rounded-xl text-xs font-bold bg-white text-black hover:opacity-90 transition-opacity">
+                <a href="https://me.kemer.store" target="_blank" class="flex items-center justify-center space-x-1.5 py-2.5 rounded-xl text-xs font-bold action-primary hover:opacity-90 transition-opacity">
                     <i class="fa-solid fa-globe text-[11px]"></i>
                     <span>Səhifəni aç</span>
                 </a>
